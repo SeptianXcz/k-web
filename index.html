@@ -14,35 +14,40 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #2980b9, #6dd5fa);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
+      background: linear-gradient(to bottom right, #6dd5fa, #2980b9);
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     .card {
       background: white;
       padding: 40px;
-      border-radius: 16px;
+      border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       width: 90%;
       max-width: 400px;
       text-align: center;
-      margin-top: 60px;
-      animation: fadeInUp 1s ease;
+      margin-top: 80px;
+      position: relative;
+    }
+
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     h1 {
-      margin-bottom: 10px;
+      margin-top: 60px;
       color: #333;
     }
 
@@ -64,18 +69,19 @@
     button {
       width: 100%;
       padding: 12px;
-      background-color: #3498db;
+      background: linear-gradient(135deg, #3498db, #2980b9);
       border: none;
       border-radius: 6px;
       color: white;
       font-size: 16px;
       cursor: pointer;
       margin-top: 10px;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     button:hover {
-      background-color: #2d82c3;
+      transform: scale(1.03);
+      background: linear-gradient(135deg, #2980b9, #1f648e);
     }
 
     .status {
@@ -87,87 +93,70 @@
     .error { color: #e74c3c; }
 
     .form-area {
-      margin-top: 20px;
       display: none;
-      animation: fadeIn 0.5s ease-in-out;
+      margin-top: 20px;
     }
 
     .faq, .tqto-section {
-      width: 90%;
       max-width: 600px;
-      background: #ffffffdd;
-      padding: 30px;
-      margin: 40px auto;
+      width: 90%;
+      background: white;
+      margin-top: 40px;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      animation: fadeInUp 1s ease;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
     .faq h2, .tqto-section h2 {
+      margin-top: 0;
       color: #2980b9;
       margin-bottom: 20px;
-      text-align: center;
     }
 
     .accordion {
+      background-color: #f1f1f1;
+      color: #444;
       cursor: pointer;
-      padding: 12px;
-      margin-bottom: 10px;
+      padding: 14px;
+      width: 100%;
+      border: none;
       border-radius: 6px;
-      background: #f1f1f1;
-      font-weight: 600;
-      transition: background 0.3s;
+      text-align: left;
+      outline: none;
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px;
     }
 
     .accordion:hover {
-      background: #e1e1e1;
+      background-color: #ddd;
     }
 
     .panel {
-      padding: 10px 0;
+      padding: 0 18px;
       display: none;
+      overflow: hidden;
+      font-size: 14px;
       color: #555;
+    }
+
+    footer {
+      text-align: center;
+      color: white;
+      padding: 20px 0;
       font-size: 14px;
     }
 
-    .tqto-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .tqto-item .icon {
-      font-size: 26px;
-      margin-top: 4px;
-    }
-
-    .tqto-item h3 {
-      margin: 0 0 4px;
-      color: #333;
-      font-size: 16px;
-    }
-
-    .tqto-item p {
-      margin: 0;
+    .tqto-section ul {
+      padding-left: 20px;
       color: #555;
-      font-size: 14px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      font-size: 15px;
     }
   </style>
 </head>
 <body>
 
   <div class="card">
+    <img src="https://i.ibb.co/fqdhJpF/karla-icon.png" alt="Profile" class="profile-img" />
     <h1>Karla AI</h1>
     <p>Bot WhatsApp berbasis AI. Aman, cepat, fleksibel.</p>
     <button id="toggleFormBtn">Ingin menggunakan Karla? Daftar di sini!</button>
@@ -183,65 +172,35 @@
   <div class="faq">
     <h2>Pertanyaan Umum</h2>
 
-    <div class="accordion">Apakah Karla AI gratis?</div>
-    <div class="panel">Ya, Karla AI dapat digunakan secara gratis dengan akun terdaftar dan batas pemakaian tertentu.</div>
+    <button class="accordion">Apakah Karla AI gratis?</button>
+    <div class="panel"><p>Ya, Karla AI dapat digunakan secara gratis dengan akun terdaftar dan batas pemakaian tertentu.</p></div>
 
-    <div class="accordion">Berapa banyak nomor yang bisa saya pakai?</div>
-    <div class="panel">Setiap akun bisa mendaftarkan hingga 10 nomor WhatsApp yang berbeda.</div>
+    <button class="accordion">Berapa banyak nomor yang bisa saya pakai?</button>
+    <div class="panel"><p>Setiap akun bisa mendaftarkan hingga 10 nomor WhatsApp yang berbeda.</p></div>
 
-    <div class="accordion">Bagaimana cara mendapatkan file botnya?</div>
-    <div class="panel">Setelah kamu mendaftar, file ZIP akan otomatis diunduh ke perangkatmu.</div>
+    <button class="accordion">Bagaimana cara mendapatkan file botnya?</button>
+    <div class="panel"><p>Setelah kamu mendaftar, file ZIP akan otomatis diunduh ke perangkatmu.</p></div>
 
-    <div class="accordion">Apakah data saya aman?</div>
-    <div class="panel">Ya. Data hanya disimpan dalam repositori GitHub pemilik dan tidak dibagikan ke pihak lain.</div>
+    <button class="accordion">Apakah data saya aman?</button>
+    <div class="panel"><p>Ya. Data hanya disimpan dalam repositori GitHub pemilik dan tidak dibagikan ke pihak lain.</p></div>
   </div>
 
   <div class="tqto-section">
-    <h2>Thanks To</h2>
-
-    <div class="tqto-item">
-      <span class="icon">⚙️</span>
-      <div>
-        <h3>Penyedia Base</h3>
-        <p>Terima kasih kepada para developer awal atas fondasi bot WhatsApp yang kokoh.</p>
-      </div>
-    </div>
-
-    <div class="tqto-item">
-      <span class="icon">🌟</span>
-      <div>
-        <h3>Akame</h3>
-        <p>Proyek inspiratif yang menjadi dasar pengembangan fitur-fitur dan pematangan sitem</p>
-      </div>
-    </div>
-
-    <div class="tqto-item">
-      <span class="icon">💡</span>
-      <div>
-        <h3>Pengembangan</h3>
-        <p>Tim kreatif dan teknis yang terus meningkatkan kualitas layanan Karla AI.</p>
-      </div>
-    </div>
-
-    <div class="tqto-item">
-      <span class="icon">🔗</span>
-      <div>
-        <h3>Penyedia API</h3>
-        <p>Partner API yang memungkinkan integrasi pintar dan real-time.</p>
-      </div>
-    </div>
+    <h2>Terima Kasih Untuk</h2>
+    <ul>
+      <li><strong>Penyedia Base:</strong> Akame</li>
+      <li><strong>Pengembangan:</strong> Karla Project</li>
+      <li><strong>Penyedia API:</strong> External Provider</li>
+    </ul>
   </div>
 
-</div>
-
-  <footer style="text-align:center; color:white; padding: 20px 0; font-size: 14px;">
+  <footer>
     &copy; 2025 Karla AI. All rights reserved.
   </footer>
 
   <script src="register.js"></script>
   <script>
-    // Accordion logic
-    document.querySelectorAll('.accordion').forEach((acc) => {
+    document.querySelectorAll('.accordion').forEach(acc => {
       acc.onclick = function () {
         this.classList.toggle("active");
         const panel = this.nextElementSibling;
@@ -249,7 +208,6 @@
       };
     });
 
-    // Toggle form
     document.getElementById('toggleFormBtn').onclick = () => {
       document.querySelector('.form-area').style.display = 'block';
     };
