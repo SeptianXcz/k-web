@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Karla AI - Registrasi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #2980b9, #6dd5fa);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      margin-top: 60px;
+      animation: fadeInUp 1s ease;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2d82c3;
+    }
+
+    .status {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .success { color: #2ecc71; }
+    .error { color: #e74c3c; }
+
+    .form-area {
+      margin-top: 20px;
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .faq, .tqto-section {
+      width: 90%;
+      max-width: 600px;
+      background: #ffffffdd;
+      padding: 30px;
+      margin: 40px auto;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease;
+    }
+
+    .faq h2, .tqto-section h2 {
+      color: #2980b9;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .accordion {
+      cursor: pointer;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      background: #f1f1f1;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .accordion:hover {
+      background: #e1e1e1;
+    }
+
+    .panel {
+      padding: 10px 0;
+      display: none;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .tqto-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .tqto-item .icon {
+      font-size: 26px;
+      margin-top: 4px;
+    }
+
+    .tqto-item h3 {
+      margin: 0 0 4px;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .tqto-item p {
+      margin: 0;
+      color: #555;
+      font-size: 14px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Karla AI</h1>
+    <p>Bot WhatsApp berbasis AI. Aman, cepat, fleksibel.</p>
+    <button id="toggleFormBtn">Ingin menggunakan Karla? Daftar di sini!</button>
+
+    <div class="form-area">
+      <input type="text" id="username" placeholder="Masukkan Username" />
+      <input type="password" id="password" placeholder="Masukkan Password" />
+      <button onclick="register()">Daftar Sekarang</button>
+      <div id="status" class="status"></div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h2>Pertanyaan Umum</h2>
+
+    <div class="accordion">Apakah Karla AI gratis?</div>
+    <div class="panel">Ya, Karla AI dapat digunakan secara gratis dengan akun terdaftar dan batas pemakaian tertentu.</div>
+
+    <div class="accordion">Berapa banyak nomor yang bisa saya pakai?</div>
+    <div class="panel">Setiap akun bisa mendaftarkan hingga 10 nomor WhatsApp yang berbeda.</div>
+
+    <div class="accordion">Bagaimana cara mendapatkan file botnya?</div>
+    <div class="panel">Setelah kamu mendaftar, file ZIP akan otomatis diunduh ke perangkatmu.</div>
+
+    <div class="accordion">Apakah data saya aman?</div>
+    <div class="panel">Ya. Data hanya disimpan dalam repositori GitHub pemilik dan tidak dibagikan ke pihak lain.</div>
+  </div>
+
+  <div class="tqto-section">
+    <h2>Thanks To (TQTO)</h2>
+
+    <div class="tqto-item">
+      <span class="icon">⚙️</span>
+      <div>
+        <h3>Penyedia Base</h3>
+        <p>Terima kasih kepada para developer awal atas fondasi bot WhatsApp yang kokoh.</p>
+      </div>
+    </div>
+
+    <div class="tqto-item">
+      <span class="icon">🌟</span>
+      <div>
+        <h3>Akame</h3>
+        <p>Proyek inspiratif yang menjadi dasar pengembangan fitur-fitur dan pematangan sitem</p>
+      </div>
+    </div>
+
+    <div class="tqto-item">
+      <span class="icon">💡</span>
+      <div>
+        <h3>Pengembangan</h3>
+        <p>Tim kreatif dan teknis yang terus meningkatkan kualitas layanan Karla AI.</p>
+      </div>
+    </div>
+
+    <div class="tqto-item">
+      <span class="icon">🔗</span>
+      <div>
+        <h3>Penyedia API</h3>
+        <p>Partner API yang memungkinkan integrasi pintar dan real-time.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <footer style="text-align:center; color:white; padding: 20px 0; font-size: 14px;">
+    &copy; 2025 Karla AI. All rights reserved.
+  </footer>
+
+  <script src="register.js"></script>
+  <script>
+    // Accordion logic
+    document.querySelectorAll('.accordion').forEach((acc) => {
+      acc.onclick = function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      };
+    });
+
+    // Toggle form
+    document.getElementById('toggleFormBtn').onclick = () => {
+      document.querySelector('.form-area').style.display = 'block';
+    };
+  </script>
+</body>
+</html>
