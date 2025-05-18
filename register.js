@@ -16,7 +16,7 @@ async function register() {
   const OWNER = 'SeptianXcz';
   const REPO = 'Karladb';
   const PATH = 'public/listusers.json';
-  const GITHUB_TOKEN = atob('Z2hwX0M4UkVwRFFOd2pqeGxDZHd2QkZYSWpldDd4TFpqVTFhU2V6WQ==');
+  const GITHUB_TOKEN = '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';
 
   try {
     const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`, {
